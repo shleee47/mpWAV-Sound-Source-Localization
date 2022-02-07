@@ -122,7 +122,7 @@ void GCC_PHAT::Process(double** X) {
     for (j = 0; j < nfft/2 ; j++) {
         R_tmp2[j] = R_tmp1[j];
     }
-    R_tmp2[nfft/2* int(IntpRatio)] = R_tmp1[nfft/2]; //Áß¾Ó¿¡ °ª ÇÏ³ª
+    R_tmp2[nfft/2* int(IntpRatio)] = R_tmp1[nfft/2]; 
 
     /* Transform double complex to double*/
     for (j = 0; j < (nfft/2 * IntpRatio)+1; j++) {
@@ -133,7 +133,7 @@ void GCC_PHAT::Process(double** X) {
     /*Inverse FFT*/
     fft->SingleiFFT(R_PHAT_tmp3);
     
-    ///*Half Flip*/  ¸¶Áö¸· µÎ°³´Â ¹ö·Á
+    ///*Half Flip*/  ë§ˆì§€ë§‰ ë‘ê°œëŠ” ë²„ë ¤
     for (j = 0; j < nfft * IntpRatio / 2; j++) {
         R_PHAT[nfft * int(IntpRatio) / 2 + j] = R_PHAT_tmp3[j];
         R_PHAT[j] = R_PHAT_tmp3[nfft * int(IntpRatio) / 2 + j];
